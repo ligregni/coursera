@@ -72,3 +72,40 @@ class MinHeap:
                 self.__swap__(tmp, index)
                 index = tmp
                 sunk = True
+
+class Set:
+    def __init__(self, n):
+        self.array = map(lambda x: [x, 0, 1], range(n))
+        self.sets = dict(map(lambda x: [x, 1], range(n)))
+        self.count = n
+
+    def union(self, a, b):
+        aa = self.find(a)
+        bb = self.find(b)
+        if aa != bb:
+            if self.array[aa][1] <= self.array[bb][1]:
+                self.array[bb][1] += 1 if self.array[aa][1] == self.array[bb][1] else 0
+                self.array[bb][2] += self.array[aa][2]
+                self.array[aa][0] = bb
+                self.sets[bb] = self.array[bb][2]
+                del self.sets[aa]
+            else:
+                self.array[bb][0] = aa
+                self.array[aa][2] += self.array[bb][2]
+                self.sets[aa] = self.array[aa][2]
+                del self.sets[bb]
+            self.count -= 1
+
+    def find(self, x):
+        if self.array[x][0] != x:
+            self.array[x][0] = self.find(self.array[x][0])
+        return self.array[x][0]
+
+    def getSets(self):
+        return self.sets.values()
+
+    def getSetCount(self):
+        return len(self.sets)
+
+    def sameSet(self, a, b):
+        return self.find(a) == self.find(b)
