@@ -2,3 +2,4 @@
 ./designalgo2/week6/2sat1.txt ./designalgo2/week6/2sat2.txt ./designalgo2/week6/2sat3.txt ./designalgo2/week6/2sat4.txt ./designalgo2/week6/2sat5.txt ./designalgo2/week6/2sat6.txt
 
 *.swp
+*.pyc
