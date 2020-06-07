@@ -97,5 +97,11 @@ class MultiplicationTest(unittest.TestCase):
     self.assertEqual(karatsuba.multiply('2', '7'), '14')
 
   def test_multiply_many_digits(self):
+    self.assertEqual(karatsuba.multiply('46', '134'), '6164')
+
+  def test_multiply_many_digits_two(self):
+    self.assertEqual(karatsuba.multiply('100', '46'), '4600')
+
+  def test_multiply_many_digits_long(self):
     self.assertEqual(karatsuba.multiply('1234', '5678'), '7006652')
 

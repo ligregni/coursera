@@ -87,6 +87,6 @@ def multiply(X: str, Y: str) -> str:
 
   ac = multiply(a, c)
   bd = multiply(b, d)
-  adcb = add(multiply(a, d), multiply(b, c))
+  adcb = subtract(multiply(add(a, b), add(c, d)), add(ac, bd))
 
-  return _rlz(add(add(_10n(ac, n), _10n(adcb, h)), bd))
+  return _rlz(add(add(_10n(ac, h * 2), _10n(adcb, h)), bd))
